@@ -29,6 +29,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(binding.root)
+
+        // Configuração do botão de voltar ao menu
+        val buttonBackToMenu: Button = findViewById(R.id.buttonBackToMenu)
+        buttonBackToMenu.setOnClickListener {
+            val intent = Intent(this, TelaActivity::class.java)
+            startActivity(intent)
+            finish() // Fecha a atividade atual
+        }
     }
 
     //Função associada com todos os botões @param view é o botão clicado
