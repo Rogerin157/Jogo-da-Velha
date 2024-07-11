@@ -28,6 +28,14 @@ class JogadorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(binding.root)
+
+        // Configuração do botão de voltar ao menu
+        val buttonBackToMenu: Button = findViewById(R.id.buttonBackToMenu)
+        buttonBackToMenu.setOnClickListener {
+            val intent = Intent(this, TelaActivity::class.java)
+            startActivity(intent)
+            finish() // Fecha a atividade atual
+        }
     }
 
     //Função associada com todos os botões @param view é o botão clicado
@@ -54,7 +62,7 @@ class JogadorActivity : AppCompatActivity() {
 
         if(!vencedor.isNullOrBlank()) {
             Toast.makeText(this, "Vencedor: " + vencedor, Toast.LENGTH_LONG).show()
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, JogadorActivity::class.java)
             startActivity(intent)
             finish()
         }
